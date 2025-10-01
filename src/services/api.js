@@ -7,7 +7,8 @@ import axios from 'axios';
 
 // Create axios instance with default configuration
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'https://avirat-empire-api.store/api',
+  // Default to same-origin API so requests go to frontend pod and are proxied to backend
+  baseURL: process.env.REACT_APP_API_URL || '/api',
   timeout: 30000, // 30 seconds timeout
   headers: {
     'Content-Type': 'application/json',
